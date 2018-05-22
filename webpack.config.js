@@ -20,6 +20,13 @@ module.exports = {
         test: /jsx?$/,
         include: resolve(__dirname, './client'),
         loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   }
