@@ -127,7 +127,7 @@ Please submit a 3-minute screencast of a walk-through of the functionality *and 
 Once you've recorded your screencast, please *upload it to YouTube as an unlisted video*. Email `academics@fullstackacademy.com` with the title `Senior Enrichment Submission: [Your Name]` and include your repo link and YouTube recording link. This will aid us in evaluating your submission.
 
 ## Evaluation
-[Rubric](https://docs.google.com/document/d/1opwC-nuzmc84jTZqpQn1hsXiMxWSpkK_TwQAOHEEbEs/edit?usp=sharing)
+[Rubric](https://docs.google.com/document/d/1xJZ_qpsnK-stFkKW88FEl7epg1Stmto99Erek6Pc2ZA)
 
 - Code modularity/readability (25%)
 - Models (25%)
