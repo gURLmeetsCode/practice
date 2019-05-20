@@ -4,3 +4,20 @@
 	// Exporting all models from here seems like a good idea!
 
 // This is also probably a good place for you to set up your associations
+const db = require('../_db')
+const Aircraft = require('./Aircrafts')
+const Country = require('./Countries')
+
+
+// ASSOCIATIONS
+Aircraft.belongsTo(Country)
+Country.hasMany(Aircraft)
+
+Aircraft.hasOne(Aircraft, {as: 'succeeded'})
+
+
+module.exports = {
+  Aircraft,
+  Country,
+  db
+}
