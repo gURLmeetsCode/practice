@@ -29,8 +29,12 @@ Country.getTopFive = function(){
         [Op.lte]: 10
       }
     },
+    order: [
+        ['GFI', 'ASC']
+    ],
     limit: 5
   })
+  return topFive
 }
 
 module.exports = Country
