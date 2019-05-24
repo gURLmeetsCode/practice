@@ -54,24 +54,8 @@ router.put('/:id', async (req, res, next) => {
   try {
     const data = await Aircraft.findById(req.params.id)
     if(data){
-      const updated = await Aircraft.update(
-        {
-          make: req.body.make,
-          model: req.body.model,
-          year: req.body.year,
-          type: req.body.type,
-          cost: req.body.cost,
-          imageUrl: req.body.imageUrl,
-          description: req.body.description
-        },
-        {
-        returning: true,
-          where: {
-            id: req.params.id
-          }
-        }
-      )
-      res.send(updated)
+      const updated = await Aircraft.update(req.body)
+      res.json(updated)
     }
     else{
       res.status(404).send()
@@ -94,7 +78,7 @@ router.delete('/:id', async (req, res, next) => {
           id: req.params.id
         }
       })
-      res.status(204).json({message: 'Deleted successfully'})
+      res.status(204).send({message: 'Deleted successfully', id:req.params.id})
     }
     else{
       res.status(404).send()

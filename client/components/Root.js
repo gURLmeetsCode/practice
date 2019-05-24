@@ -11,6 +11,8 @@ import Link from '@material-ui/core/Link';
 
 import { AllAircrafts }from './AllAircrafts'
 import { AllCountries } from './AllCountries'
+import { AircraftsForm } from './AircraftsForm'
+import { CountryForm } from './CountryForm'
 import { FiveCountries } from './FiveCountries'
 import { SingleAircraft } from './SingleAircraft'
 import { SingleCountry } from './SingleCountry'
@@ -53,9 +55,11 @@ function Root(props) {
         <Switch>
           <Route exact path="/aircrafts" component={AllAircrafts}/>
           <Route exact path="/aircrafts/:id" component={SingleAircraft}/>
+          <Route exact path="/aircrafts_form" component={AircraftsForm} />
           <Route exact path="/countries" component={AllCountries} />
           <Route exact path="/countries/topFive" component={FiveCountries} />
           <Route exact path="/countries/:id" component={SingleCountry}/>
+          <Route exact path="/country_form" component={CountryForm} />
         </Switch>
       </div>
     </HashRouter>

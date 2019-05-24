@@ -19,7 +19,7 @@ class DisconnectedSingleAircraft extends Component {
       return (
         <div>
         <h2>Single Aircraft Details</h2>
-        {!this.props.aircrafts.singleAircraft ? (
+        {!this.props.aircrafts.singleAircraft.length > 0 ? (
             <div>[]</div>
           ) : (
             this.props.aircrafts.singleAircraft.map(aircraft => (

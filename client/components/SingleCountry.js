@@ -16,12 +16,11 @@ class DisconnectedSingleCountry extends Component {
 
 
     render () {
-      console.log(this.props.countries.singleCountry)
       const singleCountry = this.props.countries.singleCountry
       return (
         <div>
         <h2>Single Country Details</h2>
-        {!this.props.countries.singleCountry ? (
+        {!this.props.countries.singleCountry.aircraft ? (
             <div>[]</div>
           ) : (
             <div>
