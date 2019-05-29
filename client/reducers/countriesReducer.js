@@ -7,7 +7,7 @@ const GET_FIVE_COUNTRIES = 'GET_FIVE_COUNTRIES'
 const GET_A_COUNTRY = 'GET_A_COUNTRY'
 const ADD_A_COUNTRY = 'ADD_A_COUNTRY'
 const UPDATE_A_COUNTRY = 'UPDATE_A_COUNTRY'
-const REMOVE_A_COUNTRY = 'REMOVE_A_COUNTRY'
+const DELETE_A_COUNTRY = 'DELETE_A_COUNTRY'
 
 
 // ACTION CREATORS
@@ -37,8 +37,8 @@ export const updateACountryActionCreator = (strings) => ({
 })
 
 export const deleteACountryActionCreator = (data) => ({
-  type: REMOVE_A_COUNTRY,
-  id: data.id
+  type: DELETE_A_COUNTRY,
+  id:data.id
 })
 
 
@@ -149,8 +149,8 @@ const reducer = (state = initialState, action) => {
         }
     case UPDATE_A_COUNTRY:
         return state
-    case REMOVE_A_COUNTRY:
-        return state
+    case DELETE_A_COUNTRY:
+        return state.allCountries.filter((item) => item.id !== parseInt(action.id))
     default:
       return state
   }

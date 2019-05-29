@@ -25,10 +25,12 @@ export const addAAircraftActionCreator = (strings) => ({
   newAircraft: strings
 })
 
-export const updateAAircraftActionCreator = (strings) => ({
+export const updateAAircraftActionCreator = (id, data) => ({
   type: UPDATE_A_AIRCRAFT,
-  updatedAircraft: strings
+  id: id,
+  data: data
 })
+
 
 export const deleteAAircraftActionCreator = (data) => ({
   type: REMOVE_A_AIRCRAFT,
@@ -122,9 +124,16 @@ const reducer = (state = initialState, action) => {
           allAircrafts:[...state.allAircrafts, action.newAircraft]
         }
     case UPDATE_A_AIRCRAFT:
-      return state
+       return state.allAircrafts.map((item)=>{
+        if(item.id === action.id) {
+          return {
+             allAircrafts:[...state.allAircrafts]
+          }
+        }
+        else return item
+      })
     case REMOVE_A_AIRCRAFT:
-      return state
+      return state.allAircrafts.filter((item) => item.id !== parseInt(action.id))
     default:
       return state
   }

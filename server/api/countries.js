@@ -55,26 +55,8 @@ router.post('/', async (req, res, next) => {
 
 router.put('/:countryId', async (req, res, next) => {
   try {
-    const data = await Country.findById(req.params.countryId)
-    if(data){
-      const updated = await Country.update(
-        {
-          name: req.body.name,
-          GFI: req.body.gfi,
-          flagUrl: req.body.flagUrl
-        },
-        {
-        returning: true,
-          where: {
-            id: req.params.countryId
-          }
-        }
-      )
+      const updated = await Country.update(req.body)
       res.send(updated)
-    }
-    else{
-      res.status(404).end()
-    }
   }
   catch (err) {
     next(err)
@@ -87,18 +69,13 @@ router.put('/:countryId', async (req, res, next) => {
 
 router.delete('/:countryId', async (req, res, next) => {
   try {
-    const data = await Country.findById(req.params.countryId)
-    if(data){
+
       const deleted = await Country.destroy({
         where: {
           id: req.params.countryId
         }
       })
-      res.status(204).json({message: 'Deleted successfully'})
-    }
-    else{
-      res.status(404).end()
-    }
+      res.send({id: req.params.countryId, message: 'Deleted successfully'})
   }
   catch (err) {
     next(err)

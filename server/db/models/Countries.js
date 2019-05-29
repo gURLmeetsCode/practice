@@ -7,7 +7,10 @@ const Op = Sequelize.Op;
 const Country = db.define('country', {
   name: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   GFI: {
     type: Sequelize.DECIMAL,
@@ -18,7 +21,7 @@ const Country = db.define('country', {
   },
   flagUrl: {
     type: Sequelize.STRING,
-    defaultValue: true
+    defaultValue: "image"
   }
 })
 

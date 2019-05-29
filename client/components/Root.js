@@ -16,6 +16,8 @@ import { CountryForm } from './CountryForm'
 import { FiveCountries } from './FiveCountries'
 import { SingleAircraft } from './SingleAircraft'
 import { SingleCountry } from './SingleCountry'
+import { UpdateAircraft } from './UpdateAircraft'
+
 
 const styles = {
   root: {
@@ -56,6 +58,7 @@ function Root(props) {
           <Route exact path="/aircrafts" component={AllAircrafts}/>
           <Route exact path="/aircrafts/:id" component={SingleAircraft}/>
           <Route exact path="/aircrafts_form" component={AircraftsForm} />
+          <Route exact path="/aircrafts/update/:id" component={UpdateAircraft} />
           <Route exact path="/countries" component={AllCountries} />
           <Route exact path="/countries/topFive" component={FiveCountries} />
           <Route exact path="/countries/:id" component={SingleCountry}/>

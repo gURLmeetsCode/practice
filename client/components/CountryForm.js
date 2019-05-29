@@ -36,6 +36,7 @@ class DisconnectedCountryForm extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     this.props.ADD_A_COUNTRY_DISPATCH(this.state)
+    this.props.history.push('/countries');
 
     this.setState({
           name: '',

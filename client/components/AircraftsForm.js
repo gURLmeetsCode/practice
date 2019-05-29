@@ -31,7 +31,9 @@ class DisconnectedAircraftForm extends React.Component {
       cost: '',
       imageUrl: '',
       description: '',
-      countryId: ''
+      countryId: '',
+      editing:false
+
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -159,7 +161,7 @@ class DisconnectedAircraftForm extends React.Component {
                     <option value="10">Korea</option>
                   </select>
               </label>
-              
+
               <br />
 
         <Button type="submit" variant="contained" color="primary">

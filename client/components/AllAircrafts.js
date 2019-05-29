@@ -1,11 +1,10 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import {getAircraftsThunk, removeAAircraftThunk} from '../reducers/aircraftsReducer'
+import {getAircraftsThunk, removeAAircraftThunk,  editAAircraftActionCreator} from '../reducers/aircraftsReducer'
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import CreateTwoToneIcon from '@material-ui/icons/CreateTwoTone';
-
 
 import {Link} from 'react-router-dom'
 
@@ -38,9 +37,13 @@ class DisconnectedAllAircrafts extends Component {
                       <div>Owned by: unavailable </div>
                     )}
                     <div>
-                      <Link to="/aircrafts_form"><CreateTwoToneIcon /></Link>
-                      <Link to="/"><DeleteTwoToneIcon onClick={() => this.props.removeAAircraftDispatch(aircraft.id)}/></Link>
+
+                      <Link to={`/aircrafts/update/${aircraft.id}`}><CreateTwoToneIcon /></Link>
+                      <button
+                      onClick={()=>this.props.removeAAircraftDispatch(aircraft.id)}><DeleteTwoToneIcon/>
+                     </button>
                     </div>
+
                 </Grid>
               </div>
             ))
@@ -49,6 +52,8 @@ class DisconnectedAllAircrafts extends Component {
             <Button variant="contained" color="primary" component={Link} to="/aircrafts_form">
               Add A New Aircraft
           </Button>
+          <br />
+          <Link to="/">Back</Link>
         </div>
     )
   }

@@ -5,11 +5,17 @@ const db = require('../_db');
 const Aircraft = db.define('aircraft', {
   make: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   model: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   year: {
     type: Sequelize.INTEGER,
@@ -24,11 +30,14 @@ const Aircraft = db.define('aircraft', {
     }
   },
   cost: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.DECIMAL,
+    get: function(){
+      return this.getDataValue('cost') * 1000000
+    }
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: true
+    defaultValue: "image"
   },
   description: {
     type: Sequelize.TEXT
@@ -36,13 +45,13 @@ const Aircraft = db.define('aircraft', {
 });
 
 Aircraft.getAircraftByType = function(param){
-  if(this.type === param){
-    return this
-  }
+  const aircraftTypesArr = Aircraft.findAll({
+    where: {
+      type: param
+    }
+  })
+  return aircraftTypesArr
 }
 
-  Aircraft.updatedCost = function(){
-    return this.cost = '$1,000,000'
-  }
 
 module.exports = Aircraft
