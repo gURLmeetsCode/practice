@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {getFiveCountriesThunk} from '../reducers/countriesReducer'
-
-
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
 
 
 
@@ -25,10 +26,15 @@ class DisconnectedFiveCountries extends Component {
             ) : (
               this.props.countries.onlyFive.map(country => (
                 <div key={country.id}>
-                  <ul>
-                    <li>Country Name: {country.name}</li>
-                    <div>GFI: {country.GFI}</div>
-                  </ul>
+                  <Paper>
+                    <Avatar alt="country flag" src={country.flagUrl}/>
+                    <Typography component="p">
+                      Country Name: {country.name}
+                    </Typography>
+                    <Typography component="p">
+                      GFI: {country.GFI}
+                    </Typography>
+                  </Paper>
                 </div>
               ))
             )}

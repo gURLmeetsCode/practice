@@ -39,9 +39,8 @@ class DisconnectedAllAircrafts extends Component {
                     <div>
 
                       <Link to={`/aircrafts/update/${aircraft.id}`}><CreateTwoToneIcon /></Link>
-                      <button
-                      onClick={()=>this.props.removeAAircraftDispatch(aircraft.id)}><DeleteTwoToneIcon/>
-                     </button>
+                      <Link to="/"><DeleteTwoToneIcon onClick={()=>this.props.removeAAircraftDispatch(aircraft.id)}/></Link>
+
                     </div>
 
                 </Grid>

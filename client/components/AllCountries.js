@@ -29,7 +29,7 @@ class DisconnectedAllCountries extends Component {
                     {country.name}
                   </Link>
                   <div>
-                    <Link to="/country_form"><CreateTwoToneIcon /></Link>
+                    <Link to={`/countries/update/${country.id}`}><CreateTwoToneIcon /></Link>
                     <Link to="/"><DeleteTwoToneIcon onClick={() => this.props.removeACountryDispatch(country.id)}/></Link>
                   </div>
               </div>

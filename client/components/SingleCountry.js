@@ -4,6 +4,14 @@ import { getACountryThunk} from '../reducers/countriesReducer'
 
 import {Link} from 'react-router-dom'
 
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 
 class DisconnectedSingleCountry extends Component {
 
@@ -24,18 +32,44 @@ class DisconnectedSingleCountry extends Component {
             <div>[]</div>
           ) : (
             <div>
-              <p>Name: {singleCountry.name}</p>
-              <img src={singleCountry.flagUrl} alt="cool aircraft" />
-              <p>GFI: {singleCountry.GFI}</p>
-              <hr />
+               <p>Name: {singleCountry.name}</p>
+               <img src={singleCountry.flagUrl} alt="cool aircraft" />
+               <p>GFI: {singleCountry.GFI}</p>
+             <hr />
               {this.props.countries.singleCountry.aircraft.map(aircraft => (
                 <div key={aircraft.id}>
-                    <h3>Aircraft Details</h3>
-                    <Link to={`/aircrafts/${aircraft.id}`}>{aircraft.make}</Link>
-                    <p>Model: {aircraft.model}</p>
-                    <p>Type: {aircraft.type}</p>
-                    <p>Year: {aircraft.year}</p>
-                    <p>Cost: ${aircraft.cost}</p>
+                  <Card>
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          alt="Cool Aircraft"
+                          height="140"
+                          image={aircraft.imageUrl}
+                        />
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="h3">
+                            Aircraft Details
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            Model: {aircraft.model}
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            Type: {aircraft.type}
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            Year: {aircraft.year}
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            Cost: ${aircraft.cost}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                      <CardActions>
+                        <Button size="small" color="primary" component={Link} to={`/aircrafts/${aircraft.id}`}>
+                          {aircraft.make}
+                        </Button>
+                      </CardActions>
+                    </Card>
                 </div>
               ))}
             </div>

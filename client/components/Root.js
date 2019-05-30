@@ -17,6 +17,8 @@ import { FiveCountries } from './FiveCountries'
 import { SingleAircraft } from './SingleAircraft'
 import { SingleCountry } from './SingleCountry'
 import { UpdateAircraft } from './UpdateAircraft'
+import { UpdateCountry } from './UpdateCountry'
+
 
 
 const styles = {
@@ -63,6 +65,7 @@ function Root(props) {
           <Route exact path="/countries/topFive" component={FiveCountries} />
           <Route exact path="/countries/:id" component={SingleCountry}/>
           <Route exact path="/country_form" component={CountryForm} />
+          <Route exact path="/countries/update/:id" component={UpdateCountry} />
         </Switch>
       </div>
     </HashRouter>
